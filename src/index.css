@@ -1,13 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* global */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Work Sans', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* themes */
+.standard {
+  background-image: linear-gradient(100deg, #575656, #062e3f);
+  color: #ffdfdb;
+}
+.light {
+  background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
+  color: #1a150e;
+}
+.darker {
+  background-image: linear-gradient(100deg, #001214, #001f29);
+  color: white;
+}
+
+/* title animation */
+#title {
+  border-right: 3px solid rgba(0,0,0,.75);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(11,end), blink .75s step-end infinite;
+}
+
+.darker-title {
+  border-right-color: #01394c;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 480px }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+/* todo effects */
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.fall {
+  transform: translateY(45rem) rotateZ(45deg);
+  opacity: 0;
+  transition: 0.5s;
 }

@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import Header from "./components/Header";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
+import DateTime from "./components/DateTime";
 
-function App() {
+export default function App() {
+  const [todos, setTodos] = useState([]);
+  const [theme, setTheme] = useState(
+    localStorage.getItem("savedTheme") || "standard"
+  );
+
+  useEffect(() => {
+    document.body.className = theme;
+    localStorage.setItem("savedTheme", theme);
+  }, [theme]);
+
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("todos")) || [];
+    setTodos(saved);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header theme={theme} setTheme={setTheme} />
+      <TodoForm todos={todos} setTodos={setTodos} theme={theme} />
+      <DateTime />
+      <TodoList todos={todos} setTodos={setTodos} theme={theme} />
+    </>
   );
 }
-
-export default App;
