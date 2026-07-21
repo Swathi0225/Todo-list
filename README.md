@@ -17,8 +17,6 @@ Users can add tasks, mark them as completed, and delete them. Tasks are stored p
 - HTML5
 - CSS3
 
-## 📸 Screenshot
-(Add your project screenshot here)
 
 ## ⚙️ How It Works
 - Tasks are managed using React state
