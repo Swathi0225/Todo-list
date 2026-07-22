@@ -16,6 +16,7 @@ Users can add tasks, mark them as completed, and delete them. Tasks are stored p
 - JavaScript (ES6)
 - HTML5
 - CSS3
+- Tailwind CSS
 
 
 ## ⚙️ How It Works
